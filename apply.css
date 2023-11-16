@@ -1,0 +1,180 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.uppersec {
+    background-color: #fff;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #f9f8fb;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a:hover {
+    color: #a080ff;
+    transition: color 0.3s;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.section {
+    background-color: #f7f7f7;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.submitsec{
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    margin: 5px;
+}
+
+.section h2 {
+    font-size: 28px;
+    color: #6c63ff;
+    margin-bottom: 20px;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.section-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.section-text label {
+    color: #6c63ff;
+}
+
+.section-text input, .section-text select, .section-text textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c5b6ff;
+    border-radius: 5px;
+}
+
+.section-image {
+    flex: 1;
+    text-align: center;
+}
+
+.section-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #6c63ff;
+}
+
+section a {
+    display: inline-block;
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+section a:hover {
+    background-color: #8a7eff;
+}
+
+footer {
+    background-color: #6c63ff;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 20px;
+    font-weight: 600;
+}
+
+.links a:hover {
+    color: #a080ff;
+    transition: color 0.3s;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align the container to the right */
+    margin-top: 20px; /* Add some top margin for spacing */
+}
+
+/* Style for the "Submit" button */
+.submitbutton {
+    background-color: #A697F3;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    /* Align the button to the right */
+    align-self: flex-end;
+}
+
+#selectedLanguages div {
+    margin-bottom: 10px; /* Add spacing between the bullet points */
+    list-style-type: disc; /* Use bullets for list items */
+    margin-left: 10px; /* Adjust the bullet's position */
+}
