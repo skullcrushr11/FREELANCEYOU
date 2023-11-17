@@ -1,33 +1,171 @@
+<!-- hire.html -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Hire a Freelancer - FREELANCEYOU</title>
+    <link rel="stylesheet" href="hire.css">
+    <title>Hire a Freelancer</title>
 </head>
+
 <body>
-    <header>
+    <section class="apply-header">
         <div class="logo">FREELANCEYOU</div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="apply.html">Apply as a Freelancer</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-    </header>
-    <section>
-        <h1>Hire a Freelancer</h1>
-        <p>Here, you can describe how to hire a freelancer and provide any necessary information or forms for the hiring process.</p>
     </section>
-    <footer>
-        <div class="copyright">© 2023 FREELANCEYOU</div>
-        <div class="links">
-            <a href="#">About Us</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Privacy Policy</a>
-        </div>
-    </footer>
+
+    <section class="freelancer-search">
+        <input type="text" id="searchInput" placeholder="Search by name or occupation">
+    </section>
+
+    <section class="freelancer-container" id="freelancerContainer">
+
+    </section>
+
+    <script>
+        // Sample hardcoded freelancer data
+        var freelancers = [
+            {
+                fullName: "John Doe",
+                occupation: "Developer",
+                skills: "HTML, CSS, JavaScript",
+                profileImage: "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier",
+                description: "Experienced web developer",
+                languagesKnown: "English, Spanish"
+            },
+            {
+                fullName: "Jane Smith",
+                occupation: "Graphic Designer",
+                skills: "Adobe Photoshop, Illustrator",
+                profileImage: "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier",
+                description: "Creative graphic designer with a passion for visual storytelling",
+                languagesKnown: "English, French"
+            },
+            {
+                fullName: "Alex Johnson",
+                occupation: "Writer",
+                skills: "Content creation, Copywriting",
+                profileImage: "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier",
+                description: "Versatile writer with a flair for words",
+                languagesKnown: "English, German"
+            },
+            {
+                fullName: "Emily Brown",
+                occupation: "Social Media Manager",
+                skills: "Social media strategy, Content scheduling",
+                profileImage: "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier",
+                description: "Expert in managing social media presence",
+                languagesKnown: "English, Spanish"
+            },
+            {
+                fullName: "Michael Chen",
+                occupation: "Data Scientist",
+                skills: "Python, Machine Learning",
+                profileImage: "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier",
+                description: "Analytical thinker leveraging data to drive insights",
+                languagesKnown: "English, Mandarin"
+            },
+            {
+                fullName: "Ava Rodriguez",
+                occupation: "Marketing Specialist",
+                skills: "Digital marketing, SEO",
+                profileImage: "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier",
+                description: "Strategic marketer driving online visibility",
+                languagesKnown: "English, Spanish"
+            },
+            {
+                fullName: "Oliver Kim",
+                occupation: "Photographer",
+                skills: "Portrait photography, Photo editing",
+                profileImage: "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier",
+                description: "Capturing moments through the lens",
+                languagesKnown: "English, Korean"
+            },
+            {
+                fullName: "Sophie White",
+                occupation: "UX/UI Designer",
+                skills: "Wireframing, Prototyping",
+                profileImage: "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier",
+                description: "Creating seamless user experiences with a touch of creativity",
+                languagesKnown: "English, French"
+            },
+            {
+                fullName: "William Taylor",
+                occupation: "Video Editor",
+                skills: "Video editing, Motion graphics",
+                profileImage: "https://source.unsplash.com/random/200x200?sig=incrementingIdentifier",
+                description: "Crafting compelling visual stories through video",
+                languagesKnown: "English, Spanish"
+            }
+        ];
+    
+        document.getElementById("searchInput").addEventListener("input", function () {
+            filterFreelancers();
+        });
+    
+        // Event listener for clearing the search input
+        document.getElementById("searchInput").addEventListener("change", function () {
+            filterFreelancers();
+        });
+    
+        // Function to display freelancer cards
+        function displayFreelancerCards(freelancers) {
+            var freelancerContainer = document.getElementById("freelancerContainer");
+            freelancerContainer.innerHTML = "";
+    
+            freelancers.forEach(function (freelancer) {
+                var card = document.createElement("div");
+                card.classList.add("freelancer-card");
+    
+                card.innerHTML = `
+                    <img src="${freelancer.profileImage}" alt="${freelancer.fullName}">
+                    <h2>${freelancer.fullName}</h2>
+                    <p>${freelancer.occupation}</p>
+                    <p>${freelancer.skills}</p>
+                    <button class="view-profile-btn" onclick="viewProfile('${freelancer.fullName}')">View Profile</button>
+                `;
+    
+                freelancerContainer.appendChild(card);
+            });
+        }
+    
+        // Function to handle the "View Profile" button click
+        function viewProfile(fullName) {
+            // Add your logic here to navigate to the detailed profile page or show a modal
+            console.log(`Viewing profile for ${fullName}`);
+        }
+    
+        // Function to filter freelancers based on the search input
+        function filterFreelancers() {
+            var searchTerm = document.getElementById("searchInput").value.toLowerCase().trim(); // Trim whitespaces
+            var filteredFreelancers = freelancers.filter(function (freelancer) {
+                return (
+                    freelancer.fullName.toLowerCase().includes(searchTerm) ||
+                    freelancer.occupation.toLowerCase().includes(searchTerm)
+                );
+            });
+    
+            // Update the displayed cards based on the search results
+            if (searchTerm === "") {
+                // If the input is empty, display all freelancers
+                displayFreelancerCards(freelancers);
+            } else {
+                displayFreelancerCards(filteredFreelancers);
+            }
+        }
+    
+        // Display the initial set of freelancer cards
+        displayFreelancerCards(freelancers);
+    </script>
+    
 </body>
+
 </html>
